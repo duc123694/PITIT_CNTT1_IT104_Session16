@@ -1,34 +1,14 @@
-import React from "react";
+import React,{useState} from 'react'
 
-class EX6 extends React.Component {
-  state = {
-    isDarkMode: false,
-  };
-
-  toggleTheme = () => {
-    this.setState((prev) => ({ isDarkMode: !prev.isDarkMode }));
-  };
-
-  render() {
-    const { isDarkMode } = this.state;
-
-    const themeStyles: React.CSSProperties = {
-      backgroundColor: isDarkMode ? "#1e1e1e" : "#ffffff",
-      color: isDarkMode ? "#ffffff" : "#000000",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    };
-
-    return (
-      <div style={themeStyles}>
-        <h2>{isDarkMode ? "Chế độ Tối đang bật" : "Chế độ Sáng đang bật"}</h2>
-        <button onClick={this.toggleTheme}>Chuyển theme</button>
-      </div>
-    );
-  }
+export default function EX6() {
+    const [text,setText] = useState("Nguyen Van A");
+    const handleChange = () => {
+        setText (e.target.value);
+    }
+  return (
+    <div>
+        <input type="text" value={text} onChange={handleChange} />
+        <h3>Độ dài là: {text.length}</h3>
+    </div>
+  )
 }
-
-export default EX6;
